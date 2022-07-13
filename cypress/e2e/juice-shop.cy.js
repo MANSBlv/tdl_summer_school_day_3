@@ -26,7 +26,25 @@ describe("Juice-shop without auto login", () => {
     // Validate that "demo" account name appears in the menu section
   });*/
 
-  //it("Registration", () => {
+  it("Registration", () => {
+    RegistrationPage.Account.click();
+    RegistrationPage.LoginNav.click();
+    RegistrationPage.NewCustomer.click();
+    const x = (Math.random() * 100);
+    let emails = 'email_'+x+'@inbox.lv';
+    let pass =12345;
+    RegistrationPage.EmailControl.type(emails);
+    RegistrationPage.PasswordControl.type(pass);
+    RegistrationPage.RepeatPassword.type(pass);
+    RegistrationPage.SecurityQuestion.click();
+    RegistrationPage.Question.contains("Name of your favorite pet?").click();
+    RegistrationPage.Answer.type("Amogus");
+    RegistrationPage.RegisterButton.click();
+    LoginPage.Email.type(emails);
+    LoginPage.Password.type(pass);
+    LoginPage.LoginButton.click();
+    LoginPage.Account.click();
+    LoginPage.DropDownMenu.contains(emails);
     // Click Account button
     // Login button
     // Click "Not yet a customer?"
@@ -43,7 +61,7 @@ describe("Juice-shop without auto login", () => {
     // Click login button
     // Click Account button
     // Validate that account name (with previously created email address) appears in the menu section
-  //});
+  });
 });
 
 describe("Juice-shop with Auto login", () => {
