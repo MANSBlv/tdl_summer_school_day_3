@@ -7,6 +7,8 @@ import ReviewPage from "../pageObjects/ReviewPage";
 import ShirtPage from "../pageObjects/ShirtPage";
 import BasketPage from "../pageObjects/BasketPage";
 import SelectAddressPage from "../pageObjects/SelectAddressPage";
+import DeliveryMethodPage from "../pageObjects/DeliveryMethodPage";
+import PaymentOptionsPage from "../pageObjects/PaymentOptionsPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -196,8 +198,12 @@ describe("Juice-shop with Auto login", () => {
       SelectAddressPage.SelectAddress.click();
     }
     SelectAddressPage.ContinueButton();
-    //SelectAddressPage.Address.contains('Continue').click();
-   // SelectAddressPage.Test.contains('Continue').click();
+    DeliveryMethodPage.DeliveryMethod.click();
+    SelectAddressPage.ContinueButton();
+    if(PaymentOptionsPage.CardNumbers.contains("5678")){
+      PaymentOptionsPage.ClickRadio.click();
+    }
+    SelectAddressPage.ContinueButton();
       
   
     
@@ -213,13 +219,16 @@ describe("Juice-shop with Auto login", () => {
 
 
   // Create page object - BasketPage
-  // Click on "Checkout" button
+  // Click on "Checkout"button \done
+
   // Create page object - SelectAddressPage
   // Select address containing "United Fakedom"
-  // Click Continue button
+  // Click Continue button   \done
+
   // Create page object - DeliveryMethodPage
   // Select delivery speed Standard Delivery
-  // Click Continue button
+  // Click Continue button \done
+
   // Create page object - PaymentOptionsPage
   // Select card that ends with "5678"
   // Click Continue button
