@@ -4,6 +4,7 @@ import LemonPage from "../pageObjects/LemonPage";
 import LoginPage from "../pageObjects/LoginPage";
 import RegistrationPage from "../pageObjects/RegistrationPage";
 import ReviewPage from "../pageObjects/ReviewPage";
+import ShirtPage from "../pageObjects/ShirtPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -163,7 +164,7 @@ describe("Juice-shop with Auto login", () => {
   // Click expand reviews button/icon (wait for reviews to appear)
   // Validate review -  "Tastes like metal"
 
-  it("Validate product card amount",()=>{
+  /*it("Validate product card amount",()=>{
  
     HomePage.AllCards.contains("1 – 12 of 35");
     HomePage.DropDownNumbers.click();
@@ -174,7 +175,7 @@ describe("Juice-shop with Auto login", () => {
     HomePage.AllCards.contains("1 – 35 of 35");
     
 
-  })
+  })*/
 
   // Create scenario - Validate product card amount
   // Validate that the default amount of cards is 12
@@ -182,6 +183,16 @@ describe("Juice-shop with Auto login", () => {
   // Validate that the amount of cards is 24
   // Change items per page (at the bottom of page) to 36
   // Validate that the amount of cards is 35
+
+  it("Buy Girlie T-shirt",()=>{
+    LemonPage.Search.click();
+    LemonPage.TypeInSearch.type('Girlie{enter}');
+    ShirtPage.AddBasket.click();
+    ShirtPage.MyBasket.click();
+
+    
+
+  })
 
   // Create scenario - Buy Girlie T-shirt
   // Click on search icon
