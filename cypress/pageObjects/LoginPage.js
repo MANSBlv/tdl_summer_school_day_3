@@ -28,6 +28,10 @@ class LoginPage extends BasePage {
   static get DropDownMenu(){
     return cy.get('#mat-menu-panel-0');
   }
+
+  static get SavedAddress(){
+    return cy.get('[routerlink="/address/saved"]');
+  }
 }
 
 export default LoginPage;

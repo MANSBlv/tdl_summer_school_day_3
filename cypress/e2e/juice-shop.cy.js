@@ -10,6 +10,9 @@ import SelectAddressPage from "../pageObjects/SelectAddressPage";
 import DeliveryMethodPage from "../pageObjects/DeliveryMethodPage";
 import PaymentOptionsPage from "../pageObjects/PaymentOptionsPage";
 import OrderSummaryPage from "../pageObjects/OrderSummaryPage";
+import OrderCompletionPage from "../pageObjects/OrderCompletionPage";
+import SavedAddressesPage from "../pageObjects/SavedAddressesPage";
+import CreateAddressesPage from "../pageObjects/CreateAddressPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -189,7 +192,7 @@ describe("Juice-shop with Auto login", () => {
   // Change items per page (at the bottom of page) to 36
   // Validate that the amount of cards is 35
 
-  it("Buy Girlie T-shirt",()=>{
+  /*it("Buy Girlie T-shirt",()=>{
     LemonPage.Search.click();
     LemonPage.TypeInSearch.type('Girlie{enter}');
     ShirtPage.AddBasket.click();
@@ -206,10 +209,11 @@ describe("Juice-shop with Auto login", () => {
     }
     SelectAddressPage.ContinueButton();
     OrderSummaryPage.PayButton();
+    OrderCompletionPage.Completion.contains("Thank you for your purchase!");
       
   
     
-  })
+  })*/
   
 
 
@@ -236,17 +240,38 @@ describe("Juice-shop with Auto login", () => {
   // Click Continue button \done
 
   // Create page object - OrderSummaryPage
-  // Click on "Place your order and pay"
+  // Click on "Place your order and pay" /done
+
   // Create page object - OrderCompletionPage
-  // Validate confirmation - "Thank you for your purchase!"
+  // Validate confirmation - "Thank you for your purchase!" \done
+
+  it("Add address",()=>{
+    LoginPage.Account.click();
+    LoginPage.DropDownMenu.contains('Orders & Payment').click();
+    LoginPage.SavedAddress.click();
+    SavedAddressesPage.NewAddressButton();
+    CreateAddressesPage.Country.click().type('Uganda');
+    CreateAddressesPage.Name.click().type("John");
+    CreateAddressesPage.Mobile.click().type('24563847');
+    CreateAddressesPage.ZipCode.click().type('UA-123');
+    CreateAddressesPage.Addresss.click().type('Street 1');
+    CreateAddressesPage.City.click().type('Random');
+    CreateAddressesPage.State.click().type('Random2');
+    CreateAddressesPage.AddressSubmitButton();
+    CreateAddressesPage.ValidateInput.contains('Uganda').should('be.visible');
+
+
+  })
 
   // Create scenario - Add address
   // Click on Account
   // Click on Orders & Payment
   // Click on My saved addresses
+
   // Create page object - SavedAddressesPage
   // Click on Add New Address
   // Create page object - CreateAddressPage
+
   // Fill in the necessary information
   // Click Submit button
   // Validate that previously added address is visible
