@@ -1,3 +1,4 @@
+import CardsPage from "../pageObjects/CardsPage";
 import HomePage from "../pageObjects/HomePage";
 import LemonPage from "../pageObjects/LemonPage";
 import LoginPage from "../pageObjects/LoginPage";
@@ -82,20 +83,33 @@ describe("Juice-shop with Auto login", () => {
     // Validate that the card (should) contains "Sour but full of vitamins."
   });*/
 
-  it("Search 500ml and validate Lemon",()=>{
+  /*it("Search 500ml and validate Lemon",()=>{
 
     LemonPage.Search.click();
     LemonPage.TypeInSearch.type('500ml{enter}');
     LemonPage.FiveHun.contains('Lemon Juice').click();
     LemonPage.Sour.contains('Sour but full of vitamins.')
 
-  })
+  })*/
   // Create scenario - Search 500ml and validate Lemon, while having multiple cards
   // Click on search icon
   // Search for 500ml
   // Select a product card - Lemon Juice (500ml)
   // Validate that the card (should) contains "Sour but full of vitamins."
 
+  it("Search 500ml and validate cards",()=>{
+    LemonPage.Search.click();
+    LemonPage.TypeInSearch.type('500ml{enter}');
+    LemonPage.FiveHun.contains('Eggfruit Juice (500ml)').click();
+    LemonPage.Sour.contains('Now with even more exotic flavour.');
+    LemonPage.Sour.type('{esc}');
+    LemonPage.FiveHun.contains('Lemon Juice (500ml)').click();
+    LemonPage.Sour.contains('Sour but full of vitamins.');
+    LemonPage.Sour.type('{esc}');
+    LemonPage.FiveHun.contains('Strawberry Juice (500ml)').click();
+    LemonPage.Sour.contains('Sweet & tasty!');
+    LemonPage.Sour.type('{esc}');
+  })
   // Create scenario - Search 500ml and validate cards
   // Click on search icon
   // Search for 500ml
