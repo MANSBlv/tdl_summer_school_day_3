@@ -141,7 +141,7 @@ describe("Juice-shop with Auto login", () => {
   // Click expand reviews button/icon (wait for reviews to appear)
   // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
 
-  it("Create a review",()=>{
+  /*it("Create a review",()=>{
     LemonPage.Search.click();
     LemonPage.TypeInSearch.type('Raspberry{enter}');
     LemonPage.FiveHun.contains('Raspberry Juice (1000ml)').click();
@@ -152,7 +152,7 @@ describe("Juice-shop with Auto login", () => {
     ReviewPage.Reviews.contains('Tastes like metal');
     
 
-  })
+  })*/
 
   // Create scenario - Add a review
   // Click on search icon
@@ -162,6 +162,19 @@ describe("Juice-shop with Auto login", () => {
   // Click Submit
   // Click expand reviews button/icon (wait for reviews to appear)
   // Validate review -  "Tastes like metal"
+
+  it("Validate product card amount",()=>{
+ 
+    HomePage.AllCards.contains("1 – 12 of 35");
+    HomePage.DropDownNumbers.click();
+    HomePage.ListOfNumbers.contains('24').click();
+    HomePage.AllCards.contains("1 – 24 of 35");
+    HomePage.DropDownNumbers.click();
+    HomePage.ListOfNumbers.contains('36').click();
+    HomePage.AllCards.contains("1 – 35 of 35");
+    
+
+  })
 
   // Create scenario - Validate product card amount
   // Validate that the default amount of cards is 12
