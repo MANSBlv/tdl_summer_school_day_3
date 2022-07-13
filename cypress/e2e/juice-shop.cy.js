@@ -5,6 +5,8 @@ import LoginPage from "../pageObjects/LoginPage";
 import RegistrationPage from "../pageObjects/RegistrationPage";
 import ReviewPage from "../pageObjects/ReviewPage";
 import ShirtPage from "../pageObjects/ShirtPage";
+import BasketPage from "../pageObjects/BasketPage";
+import SelectAddressPage from "../pageObjects/SelectAddressPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -189,16 +191,27 @@ describe("Juice-shop with Auto login", () => {
     LemonPage.TypeInSearch.type('Girlie{enter}');
     ShirtPage.AddBasket.click();
     ShirtPage.MyBasket.click();
-
+    BasketPage.CheckoutButton.click();
+    if(SelectAddressPage.ContainingAddress.contains('United Fakedom')){
+      SelectAddressPage.SelectAddress.click();
+    }
+    SelectAddressPage.ContinueButton();
+    //SelectAddressPage.Address.contains('Continue').click();
+   // SelectAddressPage.Test.contains('Continue').click();
+      
+  
     
-
   })
+  
+
 
   // Create scenario - Buy Girlie T-shirt
   // Click on search icon
   // Search for Girlie
   // Add to basket "Girlie"
   // Click on "Your Basket" button
+
+
   // Create page object - BasketPage
   // Click on "Checkout" button
   // Create page object - SelectAddressPage
