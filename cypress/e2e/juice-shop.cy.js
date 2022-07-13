@@ -9,6 +9,7 @@ import BasketPage from "../pageObjects/BasketPage";
 import SelectAddressPage from "../pageObjects/SelectAddressPage";
 import DeliveryMethodPage from "../pageObjects/DeliveryMethodPage";
 import PaymentOptionsPage from "../pageObjects/PaymentOptionsPage";
+import OrderSummaryPage from "../pageObjects/OrderSummaryPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -204,6 +205,7 @@ describe("Juice-shop with Auto login", () => {
       PaymentOptionsPage.ClickRadio.click();
     }
     SelectAddressPage.ContinueButton();
+    OrderSummaryPage.PayButton();
       
   
     
@@ -231,7 +233,8 @@ describe("Juice-shop with Auto login", () => {
 
   // Create page object - PaymentOptionsPage
   // Select card that ends with "5678"
-  // Click Continue button
+  // Click Continue button \done
+
   // Create page object - OrderSummaryPage
   // Click on "Place your order and pay"
   // Create page object - OrderCompletionPage
