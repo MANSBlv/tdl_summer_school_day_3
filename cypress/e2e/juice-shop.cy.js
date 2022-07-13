@@ -13,6 +13,7 @@ import OrderSummaryPage from "../pageObjects/OrderSummaryPage";
 import OrderCompletionPage from "../pageObjects/OrderCompletionPage";
 import SavedAddressesPage from "../pageObjects/SavedAddressesPage";
 import CreateAddressesPage from "../pageObjects/CreateAddressPage";
+import SavedPaymentsMethodsPage from "../pageObjects/SavedPaymentsMethodsPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -245,7 +246,7 @@ describe("Juice-shop with Auto login", () => {
   // Create page object - OrderCompletionPage
   // Validate confirmation - "Thank you for your purchase!" \done
 
-  it("Add address",()=>{
+  /*it("Add address",()=>{
     LoginPage.Account.click();
     LoginPage.DropDownMenu.contains('Orders & Payment').click();
     LoginPage.SavedAddress.click();
@@ -261,20 +262,34 @@ describe("Juice-shop with Auto login", () => {
     CreateAddressesPage.ValidateInput.contains('Uganda').should('be.visible');
 
 
-  })
+  })*/
 
   // Create scenario - Add address
   // Click on Account
   // Click on Orders & Payment
-  // Click on My saved addresses
+  // Click on My saved addresses \done
 
   // Create page object - SavedAddressesPage
   // Click on Add New Address
-  // Create page object - CreateAddressPage
+  // Create page object - CreateAddressPage /done
 
   // Fill in the necessary information
   // Click Submit button
-  // Validate that previously added address is visible
+  // Validate that previously added address is visible /done
+
+  it("Add payment option",()=>{
+    LoginPage.Account.click();
+    LoginPage.DropDownMenu.contains('Orders & Payment').click();
+    LoginPage.MyPaymentOptions.click();
+    SavedPaymentsMethodsPage.NewCard.contains("Add new card").click();
+    SavedPaymentsMethodsPage.Name.type('Felix');
+    SavedPaymentsMethodsPage.CardNumber.type('1234566546655555');
+    SavedPaymentsMethodsPage.Month.select('7');
+    SavedPaymentsMethodsPage.Year.select('2090');
+    SavedPaymentsMethodsPage.SubmitButton.click();
+    SavedPaymentsMethodsPage.ValidateCard.contains("Felix");
+    //SavedPaymentsMethodsPage.Fields("Name").type('Felix',{force:true});
+  })
 
   // Create scenario - Add payment option
   // Click on Account

@@ -32,6 +32,10 @@ class LoginPage extends BasePage {
   static get SavedAddress(){
     return cy.get('[routerlink="/address/saved"]');
   }
+
+  static get MyPaymentOptions(){
+    return cy.get('[routerlink="/saved-payment-methods"]');
+  }
 }
 
 export default LoginPage;
