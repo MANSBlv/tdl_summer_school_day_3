@@ -18,6 +18,10 @@ class LemonPage extends BasePage {
         return cy.get('[class="container mat-typography"]');
     }
 
+    static get FiveHun(){
+        return cy.get('[class="mat-grid-list"]');
+    }
+
 
 }
 
