@@ -1,8 +1,9 @@
-import CardsPage from "../pageObjects/CardsPage";
+import CardsPage from "../pageObjects/ReviewPage";
 import HomePage from "../pageObjects/HomePage";
 import LemonPage from "../pageObjects/LemonPage";
 import LoginPage from "../pageObjects/LoginPage";
 import RegistrationPage from "../pageObjects/RegistrationPage";
+import ReviewPage from "../pageObjects/ReviewPage";
 
 describe("Juice-shop without auto login", () => {
   beforeEach(() => {
@@ -97,7 +98,7 @@ describe("Juice-shop with Auto login", () => {
   // Select a product card - Lemon Juice (500ml)
   // Validate that the card (should) contains "Sour but full of vitamins."
 
-  it("Search 500ml and validate cards",()=>{
+  /*it("Search 500ml and validate cards",()=>{
     LemonPage.Search.click();
     LemonPage.TypeInSearch.type('500ml{enter}');
     LemonPage.FiveHun.contains('Eggfruit Juice (500ml)').click();
@@ -109,8 +110,8 @@ describe("Juice-shop with Auto login", () => {
     LemonPage.FiveHun.contains('Strawberry Juice (500ml)').click();
     LemonPage.Sour.contains('Sweet & tasty!');
     LemonPage.Sour.type('{esc}');
-  })
-  // Create scenario - Search 500ml and validate cards
+  })*/
+   // Create scenario - Search 500ml and validate cards
   // Click on search icon
   // Search for 500ml
   // Select a product card - Eggfruit Juice (500ml)
@@ -121,6 +122,17 @@ describe("Juice-shop with Auto login", () => {
   // Close the card
   // Select a product card - Strawberry Juice (500ml)
   // Validate that the card (should) contains "Sweet & tasty!"
+  
+  it("Read a review",()=>{
+    LemonPage.Search.click();
+    LemonPage.TypeInSearch.type('king{enter}');
+    LemonPage.FiveHun.contains('King of the Hill').click();
+    ReviewPage.ReviewDropDown.click();
+    cy.wait(3000);
+    ReviewPage.Reviews.contains('K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!');
+
+  })
+ 
 
   // Create scenario - Read a review
   // Click on search icon
