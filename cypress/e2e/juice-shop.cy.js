@@ -1,4 +1,5 @@
 import HomePage from "../pageObjects/HomePage";
+import LemonPage from "../pageObjects/LemonPage";
 import LoginPage from "../pageObjects/LoginPage";
 import RegistrationPage from "../pageObjects/RegistrationPage";
 
@@ -26,7 +27,7 @@ describe("Juice-shop without auto login", () => {
     // Validate that "demo" account name appears in the menu section
   });*/
 
-  it("Registration", () => {
+  /*it("Registration", () => {
     RegistrationPage.Account.click();
     RegistrationPage.LoginNav.click();
     RegistrationPage.NewCustomer.click();
@@ -61,21 +62,25 @@ describe("Juice-shop without auto login", () => {
     // Click login button
     // Click Account button
     // Validate that account name (with previously created email address) appears in the menu section
-  });
+  });*/
 });
 
 describe("Juice-shop with Auto login", () => {
   beforeEach(() => {
-  //  cy.login("demo", "demo");
-   // HomePage.visit();
+    cy.login("demo", "demo");
+    HomePage.visit();
   });
 
-  //it("Search and validate Lemon", () => {
+  it("Search and validate Lemon", () => {
+    LemonPage.Search.click();
+    LemonPage.TypeInSearch.type('Lemon{enter}');
+    LemonPage.LemonItem.click();
+    LemonPage.Sour.contains('Sour but full of vitamins.')
     // Click on search icon
     // Search for Lemon
     // Select a product card - Lemon Juice (500ml)
     // Validate that the card (should) contains "Sour but full of vitamins."
-  //});
+  });
 
   // Create scenario - Search 500ml and validate Lemon, while having multiple cards
   // Click on search icon
