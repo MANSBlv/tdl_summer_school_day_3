@@ -5,8 +5,28 @@ class LoginPage extends BasePage {
     return '/#/login';
   }
 
-  static get elementName(){
-    return cy.get('elementSelector');
+  static get Account(){
+    return cy.get('#navbarAccount');
+  }
+
+  static get LoginNav(){
+    return cy.get('#navbarLoginButton');
+  }
+
+  static get Email(){
+    return cy.get("#email");
+  }
+
+  static get Password(){
+    return cy.get('#password');
+  }
+
+  static get LoginButton(){
+    return cy.get('#loginButton');
+  }
+
+  static get DropDownMenu(){
+    return cy.get('#mat-menu-panel-0');
   }
 }
 
