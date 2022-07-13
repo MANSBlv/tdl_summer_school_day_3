@@ -9,6 +9,14 @@ class ReviewPage extends BasePage {
         return cy.get('[class="comment ng-star-inserted"]');
     }
 
+    static get WriteReview(){
+        return cy.get('[placeholder="What did you like or dislike?"]');
+    }
+
+    static get SubmitButton(){
+        return cy.get('#submitButton');
+    }
+
 }
 
 export default ReviewPage;

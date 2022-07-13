@@ -123,7 +123,7 @@ describe("Juice-shop with Auto login", () => {
   // Select a product card - Strawberry Juice (500ml)
   // Validate that the card (should) contains "Sweet & tasty!"
   
-  it("Read a review",()=>{
+  /*it("Read a review",()=>{
     LemonPage.Search.click();
     LemonPage.TypeInSearch.type('king{enter}');
     LemonPage.FiveHun.contains('King of the Hill').click();
@@ -131,7 +131,7 @@ describe("Juice-shop with Auto login", () => {
     cy.wait(3000);
     ReviewPage.Reviews.contains('K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!');
 
-  })
+  })*/
  
 
   // Create scenario - Read a review
@@ -140,6 +140,19 @@ describe("Juice-shop with Auto login", () => {
   // Select a product card - OWASP Juice Shop "King of the Hill" Facemask
   // Click expand reviews button/icon (wait for reviews to appear)
   // Validate review - K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!
+
+  it("Create a review",()=>{
+    LemonPage.Search.click();
+    LemonPage.TypeInSearch.type('Raspberry{enter}');
+    LemonPage.FiveHun.contains('Raspberry Juice (1000ml)').click();
+    ReviewPage.WriteReview.click().type("Tastes like metal");
+    ReviewPage.SubmitButton.click();
+    ReviewPage.ReviewDropDown.click();
+    cy.wait(3000);
+    ReviewPage.Reviews.contains('Tastes like metal');
+    
+
+  })
 
   // Create scenario - Add a review
   // Click on search icon
